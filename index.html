@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Loca Snacks || Coming Soon</title>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="fonts/stylesheet.css">
+	
+<style>
+   body{
+       background-color:#003764;
+       margin: 0px;
+       height: 100%;
+       overflow: hidden;
+   }
+ #lottie {
+	background-color: #003764;
+	width: 100%;
+	height: 100vh;
+	display: block;
+	overflow: hidden;
+	transform: translate3d(0,0,0);
+	text-align: center;
+	opacity: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#lottie svg {
+    width: 500px !important;
+    height: 500px !important;
+}
+h2
+{
+ font-family: 'Avenir Next LT Pro';
+}
+#lottie h2 {
+	color: #fff;
+	font-size: 91px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	text-align: center;
+	bottom: 0;
+	font-weight: 900;
+	z-index: 100000 !important;
+}
+@media (max-width:567px)
+{
+#lottie h2 {
+	bottom: 130px !important;
+	font-size: 45px;
+}
+#lottie svg {
+	position: relative;
+	top: -90px;
+}
+}
+</style>
+	
+</head>
+
+<body>
+   
+   <div id="lottie">
+   <h2>COMING <span>SOON!</span></h2>
+   </div>
+<script src="buildscript.js"></script>
+<script src="lottieinitialise.js"></script>
+<div style='display:none'></div>
+<audio  controls="false" autoplay="true" loop="true">
+    
+    <source src="LocasChips_1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio> 
+	
+</body>
+</html>

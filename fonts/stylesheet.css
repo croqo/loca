@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Avenir-Pro-ialic';
+    src: url('AvenirNextLTPro-HeavyCnIt.eot');
+    src: url('AvenirNextLTPro-HeavyCnIt.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextLTPro-HeavyCnIt.woff2') format('woff2'),
+        url('AvenirNextLTPro-HeavyCnIt.woff') format('woff'),
+        url('AvenirNextLTPro-HeavyCnIt.ttf') format('truetype'),
+        url('AvenirNextLTPro-HeavyCnIt.svg#AvenirNextLTPro-HeavyCnIt') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('AvenirNextLTPro-HeavyCn.eot');
+    src: url('AvenirNextLTPro-HeavyCn.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextLTPro-HeavyCn.woff2') format('woff2'),
+        url('AvenirNextLTPro-HeavyCn.woff') format('woff'),
+        url('AvenirNextLTPro-HeavyCn.ttf') format('truetype'),
+        url('AvenirNextLTPro-HeavyCn.svg#AvenirNextLTPro-HeavyCn') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
