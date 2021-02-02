@@ -1,0 +1,33 @@
+{
+  "name": "loca-web",
+  "version": "0.0.1",
+  "description": "Loca Chips Website",
+  "main": "src/app.js",
+  "repository": "https://github.com/croqo/loca.git",
+  "author": "Eugene Croquette <welcome@croc.work>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "howler": "2.2.0",
+    "lottie-web": "^5.7.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@webpack-cli/init": "^1.1.2",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.1",
+    "mini-css-extract-plugin": "^1.3.5",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0",
+    "workbox-webpack-plugin": "^6.1.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

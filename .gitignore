@@ -1,2 +1,5 @@
-# VSCode
-.vscode*
+.*
+
+# NodeJS
+node_modules*
+*.lock
