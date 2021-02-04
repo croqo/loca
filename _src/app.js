@@ -1,7 +1,10 @@
 /*jshint esversion: 6 */ 
 
-import sound from './sound/jingle.mp3';
-import animationData from './animation.json';
+import file_webm from './sound/jingle.webm';
+import file_mp3 from './sound/jingle.mp3';
+globalThis.soundAssets = [file_webm, file_mp3];
+
+import file_json from './animation.json';
 
 import jquery from "jquery";
 globalThis.jQuery = globalThis.$ = jquery;
@@ -13,7 +16,7 @@ globalThis.howl = howl;
 $(()=>
 {
     let
-        audio = createAudio(sound.toString()),
+        audio = createAudio(soundAssets),
         node = document.getElementById('lottie'),
         params 
             = {
@@ -21,7 +24,7 @@ $(()=>
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                animationData: JSON.parse(animationData),
+                animationData: JSON.parse(file_json),
                 audioFactory: audio
             },
         anima;
@@ -34,10 +37,16 @@ $(()=>
 });
 
 
-function createAudio(assetPath)
+function createAudio(assets)
 {
+    let as = [];
+    for (let i of assets){
+        as.push(`./${i.toString()}`);
+    }
+    console.log(as);
+
     return new Howl({
-        src: [`./${assetPath}`],
+        src: as,
         html5: true,
         preload: 'auto',
         autoplay: true,
