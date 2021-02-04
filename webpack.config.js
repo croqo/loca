@@ -65,7 +65,7 @@ module.exports =
         }
       },
       {
-        test: /\.(ogg|mp3)$/i,
+        test: /\.(webm|mp3)$/i,
         type: "asset/resource",
         generator: {
           filename: 'sound/[name][ext]'
