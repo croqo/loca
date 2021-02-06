@@ -8,6 +8,7 @@ const
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   TerserPlugin = require('terser-webpack-plugin'),
   CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
+  // FTPUploadWebpackPlugin = require('ftp-upload-webpack-plugin'),
 
   source = path.resolve(__dirname, '_src'),
   public = path.resolve(__dirname, '_build')
@@ -31,11 +32,6 @@ module.exports =
   {
     rules:
     [
-      // {
-      //   test: /\.(js|jsx)$/,
-      //   include: [path.resolve(__dirname, '_src')],
-      //   loader: 'babel-loader'
-      // }, 
       {
         test: /.(sa|sc|c)ss$/,
         use: 
@@ -83,12 +79,12 @@ module.exports =
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({
               template: path.join(source, 'index.html')
-            })
+            }),
   ],
 
   watchOptions: 
   {
-    aggregateTimeout: 600,
+    // aggregateTimeout: 600,
     poll: 1200
   },    
   // optimization: 
