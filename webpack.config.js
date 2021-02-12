@@ -3,6 +3,7 @@
 const 
   path = require('path'),
   webpack = require('webpack'),
+  App = require('./package.json'),
 
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
@@ -13,6 +14,7 @@ const
   source = path.resolve(__dirname, '_src'),
   public = path.resolve(__dirname, '_build')
 ;
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = 
@@ -32,6 +34,10 @@ module.exports =
   {
     rules:
     [
+      {
+        test: /\.handlebars$/,
+        loader: 'handlebars-loader'
+      },
       {
         test: /.(sa|sc|c)ss$/,
         use: 
@@ -75,11 +81,16 @@ module.exports =
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new webpack.ProgressPlugin(),
+    new webpack.ProgressPlugin({
+      percentBy: 'entries'
+    }),
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({
-              template: path.join(source, 'index.html')
-            }),
+      title: `— ${App.name} ( v${App.version} ) —`,
+      template: path.join(source, "html/index.handlebars"),
+      filename: 'index.html',
+      inject: true
+    }),
   ],
 
   watchOptions: 
