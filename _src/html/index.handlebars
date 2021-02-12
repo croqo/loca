@@ -1,13 +1,10 @@
-<!doctype html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<!-- <title>Loca Snacks || Coming Soon</title> -->
-	<meta content="width=device-width, initial-scale=1" name="viewport" />	
-</head>
+{{> head}}
 
 <body>
-	<figure id="lottie"></figure>
+	<figure 
+		class="lottie"
+		data-name="animation-tweak"
+	></figure>
 	<audio id="sound">
 		<source id="webm" src="sound/jingle.webm">
 		<source id="mp3" src="sound/jingle.mp3">
@@ -17,7 +14,7 @@
 	   </header>
 	   <main class="hero-body"></main>
 	   <footer class="hero-foot">
-		<h2 class="title has-text-white has-text-centered">COMING SOON! {{title}}</h2>
+		<h2 class="title has-text-white has-text-centered">COMING SOON! {{this.title}}</h2>
 		<figure class="acrylic"></div>
 	   </footer>
    </section>
