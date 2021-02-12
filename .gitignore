@@ -1,6 +1,0 @@
-.*
-_build/*
-
-# NodeJS
-node_modules*
-*.lock
