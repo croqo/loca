@@ -7,6 +7,10 @@
   "author": "Eugene Croquette <welcome@croc.work>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "webpack --stats-children --progress",
+    "watch": "webpack --watch --progress -c './webpack.config.js'"
+  },
   "dependencies": {
     "fullpage.js": "^3.1.0",
     "howler": "^2.2.1",
@@ -28,9 +32,5 @@
     "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
-  },
-  "scripts": {
-    "build": "webpack --stats-children --progress",
-    "watch": "webpack --watch --progress -c './webpack.config.js'"
   }
 }
