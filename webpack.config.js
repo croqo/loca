@@ -9,13 +9,11 @@ const
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   TerserPlugin = require('terser-webpack-plugin'),
   CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
-  // FTPUploadWebpackPlugin = require('ftp-upload-webpack-plugin'),
 
   source = path.resolve(__dirname, '_src'),
-  public = path.resolve(__dirname, '_build')
-;
+  public = path.resolve(__dirname, 'www')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+;
 
 module.exports = 
 {
@@ -28,7 +26,8 @@ module.exports =
 
   output: {
     path: public,
-    publicPath: ''
+    publicPath: '',
+    clean: true
   },
   module: 
   {
@@ -43,7 +42,12 @@ module.exports =
         use: 
         [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader' },
+          { 
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
           {
             loader: 'sass-loader',
             options: {
@@ -74,15 +78,17 @@ module.exports =
         }
       },
       {
-        test: /\.(json)$/i,
+        test: /\.(json)$/,
         type: "asset/source"
       },
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new webpack.ProgressPlugin({
       percentBy: 'entries'
+    }),
+    new webpack.ProvidePlugin({
+      license: path.join(source, '.licence.json')
     }),
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({
@@ -93,11 +99,6 @@ module.exports =
     }),
   ],
 
-  watchOptions: 
-  {
-    // aggregateTimeout: 600,
-    poll: 1200
-  },    
   // optimization: 
   // {
   //   minimize: true,

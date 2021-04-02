@@ -2,56 +2,58 @@
 
 import file_webm from './sound/jingle.webm';
 import file_mp3 from './sound/jingle.mp3';
-globalThis.soundAssets = [file_webm, file_mp3];
 
-import file_json from './animation.json';
+import file_json from './lottie/animation-tweak.json';
 
-import jquery from "jquery";
-globalThis.jQuery = globalThis.$ = jquery;
+import $ from "jquery";
+
 import lottie from "lottie-web";
-globalThis.lottie = lottie;
-import {howl} from "howler";
-globalThis.howl = howl;
+import {Howl} from "howler";
+import fullpage from "fullpage.js";
 
-$(()=>
-{
-    let
-        audio = createAudio(soundAssets),
-        node = document.getElementById('lottie'),
-        params 
-            = {
-                container: node,
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                animationData: JSON.parse(file_json),
-                audioFactory: audio
-            },
-        anima;
-        anima = lottie.loadAnimation(params);
-        anima.addEventListener('DOMLoaded',()=>{
-            console.log('Animation ready');
-        });
-        anima.play();
+const KEYS = JSON.parse(license);
 
+var sound = createAudio([file_webm, file_mp3]);
+var anima = createAnimation(file_json);
+anima.playSegments([0, 270]);
+console.log(sound);
+console.log(anima);
+
+$(()=>{
+    new fullpage("#fullpage", {
+        licenseKey: KEYS.fullpage
+    });
 });
 
 
 function createAudio(assets)
 {
-    let as = [];
-    for (let i of assets){
-        as.push(`./${i.toString()}`);
-    }
-    console.log(as);
-
     return new Howl({
-        src: as,
+        src: assets,
         html5: true,
-        preload: 'auto',
-        autoplay: true,
-        onload: ()=>{
-            console.log('Sound ready');
-        }
-    });
+        preload: 'auto'
+    })
 }
+
+function createAnimation(json){
+    return lottie.loadAnimation({
+        container: $('.lottie')[0],
+        animationData: JSON.parse(json),
+        autoplay: false,
+        loop: false
+    })
+}
+
+$(".acrylic").on("click", (e)=>{
+    anima.playSegments([0, 270], true);
+    sound.play();
+    var it = e.target;
+    $(it).animate({
+        opacity: .5
+    },300);
+    setTimeout(()=>{
+        $(it).animate({
+            opacity: .99
+        },1500);
+    },3000);
+})
