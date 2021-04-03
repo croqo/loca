@@ -5,8 +5,6 @@ import file_webm from './sound/jingle.webm';
 import file_mp3 from './sound/jingle.mp3';
 const sound = createSound([file_webm, file_mp3]);
 
-import animationJSON from './lottie/animation-tweak.json';
-const animationDATA = JSON.parse(animationJSON);
 
 import $ from "jquery";
 import lottie from "lottie-web";
@@ -24,13 +22,9 @@ $(()=>{
         fixedElements: ".navbar, is-fixed",
         afterRender: function(){
             $(".lottie").each((index, node)=>{
-                let anima = createAnimation(node, animationDATA);
+                let anima = createAnimation(node);
                 anima.goToAndStop(270, true);
-
-                $(node).animate({
-                    "z-index": 2
-                }, 300, ()=>{
-                    anima.playSegments([0, 270]);
+                anima.playSegments([0, 270]);
                 });
 
                 Player = {
@@ -60,13 +54,22 @@ function createSound(assets)
     })
 }
 
-function createAnimation(node, data){
+function createAnimation(node){
+    const 
+        name = $(node).data("name"),
+        animationData = getAnimationData(name)
+    ;
     return lottie.loadAnimation({
+        name: name,
         container: node,
-        animationData: data,
+        animationData: animationData,
         autoplay: false,
         loop: false
     })
+}
+function getAnimationData(name){
+    const animationJSON = require(`./lottie/${name}.json`);
+    return JSON.parse(animationJSON)
 }
 
 $(".solid").on("click", (ev)=>{
