@@ -1,30 +1,47 @@
 {{> head}}
 
 <body>
-	<figure 
-		class="lottie"
-		data-name="animation-tweak"
-	></figure>
-	<audio id="sound">
-		<source id="webm" src="sound/jingle.webm">
-		<source id="mp3" src="sound/jingle.mp3">
-	</audio>
-   <section class="hero">
-	   <header class="hero-head">
-					{{> parts/nav}}
-	   </header>
-	   <main class="hero-body"></main>
-	   <footer class="hero-foot">
-		<h2 class="title has-text-white has-text-centered">COMING SOON! {{this.title}}</h2>
-		<figure class="acrylic"></div>
-	   </footer>
-   </section>
+	<div id="fullpage">
 
-<!-- <audio  controls="false" autoplay="true" loop="true">
-    
-    <source src="LocasChips_1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>  -->
-	
+
+		<section  data-anchor="intro">
+			<div class="hero is-fullheight">
+				<figure class="lottie"></figure>
+				<header class="hero-head">
+					{{> parts/nav}}
+				</header>
+				<main class="hero-body">
+					<div class="columns is-center is-vcentered">
+
+						<div class="column">
+							<div class="card-content">
+								<span class="level-item">
+									<button id="btnEnter" class="button is-large is-info is-light is-rounded">Enter</button>
+								</span>
+							</div>
+						</div>
+
+					</div>
+				</main>
+				<footer class="hero-foot">
+									<figure class="solid"></figure>
+				</footer>
+			</div>
+
+		</section>
+		<section data-anchor="home">
+
+			<div class="hero">
+				<header class="hero-head">
+
+				</header>
+				<main class="hero-body"></main>
+				<footer class="hero-foot">
+					<h2 class="title has-text-white has-text-centered">Home {{this.title}}</h2>
+				</footer>
+			</div>
+
+		</section>
+	</div>
 </body>
 </html>
