@@ -88,7 +88,8 @@ module.exports =
       percentBy: 'entries'
     }),
     new webpack.ProvidePlugin({
-      license: path.join(source, '.licence.json')
+      license: path.join(source, '.licence.json'),
+      fullpage: "fullpage.js"
     }),
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({
@@ -98,6 +99,11 @@ module.exports =
       inject: true
     }),
   ],
+  stats: {
+    builtAt: true,
+    colors: true,
+    timings: true
+  }
 
   // optimization: 
   // {
