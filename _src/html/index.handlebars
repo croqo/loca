@@ -1,0 +1,50 @@
+{{> head}}
+
+<body>
+	<div id="fullpage">
+
+
+		<section  data-anchor="intro">
+			<div class="hero is-fullheight">
+				<figure 
+					class="lottie" 
+					data-name="animation-tweak" 
+				></figure>
+				<header class="hero-head">
+					{{> parts/nav}}
+				</header>
+				<main class="hero-body">
+					<div class="columns is-center is-vcentered">
+
+						<div class="column">
+							<div class="card-content">
+								<span class="level-item">
+									<button id="btnEnter" class="button is-large is-info is-light is-rounded">Enter</button>
+								</span>
+							</div>
+						</div>
+
+					</div>
+				</main>
+				<footer class="hero-foot">
+									<figure class="solid"></figure>
+				</footer>
+			</div>
+
+		</section>
+		<section data-anchor="home">
+
+			<div class="hero">
+				<header class="hero-head">
+
+				</header>
+				<main class="hero-body"></main>
+				<footer class="hero-foot">
+					<h2 class="title has-text-white has-text-centered">Home {{this.title}}</h2>
+				</footer>
+			</div>
+
+		</section>
+	</div>
+</body>
+</html>
