@@ -88,8 +88,7 @@ module.exports =
       percentBy: 'entries'
     }),
     new webpack.ProvidePlugin({
-      license: path.join(source, '.licence.json'),
-      fullpage: "fullpage.js"
+      license: path.join(source, '.licence.json')
     }),
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({

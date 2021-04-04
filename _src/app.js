@@ -1,17 +1,19 @@
 /*jshint esversion: 6 */ 
+
+var App = new Map().set("sound", new Map()).set("motion", new Map());
+
 const licence = JSON.parse(license);
 
-import file_webm from './sound/jingle.webm';
-import file_mp3 from './sound/jingle.mp3';
-const sound = createSound([file_webm, file_mp3]);
 
+App.get("sound").set("jingle", createSound([
+    require('./sound/jingle.webm'), 
+    require('./sound/jingle.mp3')
+]));
 
 import $ from "jquery";
 import lottie from "lottie-web";
 import {Howl} from "howler";
-
-var Player;
-// var anima = createAnimation(file_json);
+import fullpage from "fullpage.js";
 
 $(()=>{
     new fullpage("#fullpage", {
@@ -19,29 +21,20 @@ $(()=>{
         sectionSelector: "section",
         recordHistory: false,
         menubar: "#navMenu",
-        fixedElements: ".navbar, is-fixed",
+        fixedElements: ".navbar",
         afterRender: function(){
+            fullpage_api.setAllowScrolling(false);
             $(".lottie").each((index, node)=>{
-                let anima = createAnimation(node);
-                anima.goToAndStop(270, true);
-                anima.playSegments([0, 270]);
-                });
-
-                Player = {
-                    anima: anima,
-                    sound: createSound([file_webm, file_mp3])
-                }
-            })
+                const name = $(node).data("name");
+                App.get("motion").set(name, createAnimation(node));
+            });
+            action("init");
         },
         afterLoad: function(){
             console.log(this);
-            console.log(Player)
+
         }
     });
-    // anima.playSegments([0, 270]);
-    // console.log(sound);
-    // console.log(anima);
-
 });
 
 
@@ -72,30 +65,54 @@ function getAnimationData(name){
     return JSON.parse(animationJSON)
 }
 
-$(".solid").on("click", (ev)=>{
-    Player.anima.playSegments([0, 270], true);
-    Player.sound.play();
-    var it = ev.target;
-    $(it).animate({
-        opacity: .75
-    },300);
-    setTimeout(()=>{
-        $(it).animate({
-            opacity: .99
-        },1500);
-    },3000);
-})
+function action(script) {
+    const 
+        logo = App.get("motion").get("logo"),
+        button = App.get("motion").get("button"),
+        jingle = App.get("sound").get("jingle")
+    ;
+    switch (script) {
+        case "init":
+            logo.playSegments([0, 270], true);
+            setTimeout(()=>{
+                $(button.wrapper).animate({
+                    "opacity": .8
+                },800, ()=>{
+                    button.play();
+                    $(button.wrapper).animate({
+                        "z-index":11
+                    },100);
+    
+                    button.interval = setInterval(()=>{
+                        button.play()
+                    }, 3000)
+                })
+            }, 1000 ); break
 
-$(".acrylic").on("click", (e)=>{
-    anima.playSegments([0, 270], true);
-    sound.play();
-    var it = e.target;
-    $(it).animate({
-        opacity: .5
-    },300);
-    setTimeout(()=>{
-        $(it).animate({
-            opacity: .99
-        },1500);
-    },3000);
-})
+        case "bells":
+            logo.playSegments([0, 270], true);
+            jingle.play();
+
+            $(button.wrapper).animate({
+                "opacity":0
+            },100,()=>{
+                $(".solid").animate({
+                    "opacity": 0
+                },700);
+            });
+
+
+            setTimeout(()=>{
+                fullpage_api.moveSectionDown();
+            }, 800);
+            break
+        default: return
+    }
+}
+
+$("figure[data-name='button']").on("click", (ev)=>{
+    action("bells")
+
+});
+
+console.log(App)
