@@ -9,9 +9,7 @@ const sound = createSound([file_webm, file_mp3]);
 import $ from "jquery";
 import lottie from "lottie-web";
 import {Howl} from "howler";
-
-var Player;
-// var anima = createAnimation(file_json);
+import fullpage from "fullpage.js";
 
 $(()=>{
     new fullpage("#fullpage", {
