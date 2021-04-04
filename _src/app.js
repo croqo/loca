@@ -57,7 +57,8 @@ function createAnimation(node){
         container: node,
         animationData: animationData,
         autoplay: false,
-        loop: false
+        loop: false,
+        initialSegment: (name==="logo") ? [100,100] : false
     })
 }
 function getAnimationData(name){
@@ -73,38 +74,43 @@ function action(script) {
     ;
     switch (script) {
         case "init":
-            logo.playSegments([0, 270], true);
+            $(logo.wrapper).animate({
+                "opacity": .9
+            },600);
+
             setTimeout(()=>{
                 $(button.wrapper).animate({
                     "opacity": .8
-                },800, ()=>{
+                },300, ()=>{
                     button.play();
                     $(button.wrapper).animate({
                         "z-index":11
-                    },100);
+                    },50);
     
                     button.interval = setInterval(()=>{
                         button.play()
                     }, 3000)
                 })
-            }, 1000 ); break
+            }, 500 ); break
 
         case "bells":
-            logo.playSegments([0, 270], true);
+            logo.addEventListener("segmentStart", ()=>{
+                setTimeout(()=>{
+                    $(".solid").animate({
+                        "opacity": 0
+                    },2000)
+                },1500)
+            });
+            logo.addEventListener("complete", ()=>{
+                fullpage_api.moveSectionDown();
+            });
+            logo.playSegments([0, 130], true);
             jingle.play();
 
             $(button.wrapper).animate({
                 "opacity":0
             },100,()=>{
-                $(".solid").animate({
-                    "opacity": 0
-                },700);
             });
-
-
-            setTimeout(()=>{
-                fullpage_api.moveSectionDown();
-            }, 800);
             break
         default: return
     }
