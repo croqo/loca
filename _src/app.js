@@ -1,10 +1,14 @@
 /*jshint esversion: 6 */ 
+
+var App = new Map().set("sound", new Map()).set("motion", new Map());
+
 const licence = JSON.parse(license);
 
-import file_webm from './sound/jingle.webm';
-import file_mp3 from './sound/jingle.mp3';
-const sound = createSound([file_webm, file_mp3]);
 
+App.get("sound").set("jingle", createSound([
+    require('./sound/jingle.webm'), 
+    require('./sound/jingle.mp3')
+]));
 
 import $ from "jquery";
 import lottie from "lottie-web";
@@ -20,26 +24,14 @@ $(()=>{
         fixedElements: ".navbar, is-fixed",
         afterRender: function(){
             $(".lottie").each((index, node)=>{
-                let anima = createAnimation(node);
-                anima.goToAndStop(270, true);
-                anima.playSegments([0, 270]);
-                });
-
-                Player = {
-                    anima: anima,
-                    sound: createSound([file_webm, file_mp3])
-                }
-            })
+                const name = $(node).data("name");
+                App.get("motion").set(name, createAnimation(node));
+            });
         },
         afterLoad: function(){
-            console.log(this);
-            console.log(Player)
+            console.log(this)
         }
     });
-    // anima.playSegments([0, 270]);
-    // console.log(sound);
-    // console.log(anima);
-
 });
 
 
@@ -71,25 +63,11 @@ function getAnimationData(name){
 }
 
 $(".solid").on("click", (ev)=>{
-    Player.anima.playSegments([0, 270], true);
-    Player.sound.play();
+    App.get("motion").get("logo").playSegments([0, 270], true);
+    App.get("sound").get("jingle").play();
     var it = ev.target;
     $(it).animate({
         opacity: .75
-    },300);
-    setTimeout(()=>{
-        $(it).animate({
-            opacity: .99
-        },1500);
-    },3000);
-})
-
-$(".acrylic").on("click", (e)=>{
-    anima.playSegments([0, 270], true);
-    sound.play();
-    var it = e.target;
-    $(it).animate({
-        opacity: .5
     },300);
     setTimeout(()=>{
         $(it).animate({
