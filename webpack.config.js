@@ -28,9 +28,10 @@ module.exports =
     publicPath: '',
     clean: true
   },
-  resolve:[
-    ".js", ".json", ".sass", ".handlebars", "css", ".html"
-  ],
+  resolve: {
+    extensions: [
+      ".js", ".json", ".sass", ".handlebars", "css", ".html"
+  ]},
   module: 
   {
     rules:
