@@ -40,10 +40,16 @@ $(()=>{
 
 function createSound(assets)
 {
+    let n = setInterval(()=>{
+        console.log(n);
+    },10);
     return new Howl({
         src: assets,
-        html5: true,
-        preload: 'auto'
+        preload: 'auto',
+        onload: function(){
+            console.log("sound loaded");
+            clearInterval(n);
+        }
     })
 }
 
