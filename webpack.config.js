@@ -23,12 +23,14 @@ module.exports =
     path.join(source, 'app.js'),
     path.join(source, 'style.sass')
   ],
-
   output: {
     path: public,
     publicPath: '',
     clean: true
   },
+  resolve:[
+    ".js", ".json", ".sass", ".handlebars", "css", ".html"
+  ],
   module: 
   {
     rules:
@@ -67,7 +69,7 @@ module.exports =
         test: /\.(ttf|eot|woff(2)?|svg)$/,
         type: "asset/resource",
         generator: {
-            filename: 'fonts/[name][ext]'
+            filename: 'font/[name][ext]'
         }
       },
       {
@@ -93,7 +95,7 @@ module.exports =
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({
       title: `— ${App.name} ( v${App.version} ) —`,
-      template: path.join(source, "html/index.handlebars"),
+      template: path.join(source, "html"),
       filename: 'index.html',
       inject: true
     }),
