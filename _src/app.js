@@ -4,6 +4,10 @@ var App = new Map().set("sound", new Map()).set("motion", new Map());
 
 const licence = JSON.parse(license);
 
+const assets = {
+    logo: require("./img/logo.png")
+}
+console.log(assets);
 
 App.get("sound").set("jingle", createSound([
     require('./sound/jingle.webm'), 
@@ -16,6 +20,8 @@ import {Howl} from "howler";
 import fullpage from "fullpage.js";
 
 $(()=>{
+    // $("body").append(template.load("index", assets));
+
     new fullpage("#fullpage", {
         licenseKey: licence.fullpage,
         sectionSelector: "section",
@@ -24,6 +30,12 @@ $(()=>{
         fixedElements: ".navbar",
         afterRender: function(){
             fullpage_api.setAllowScrolling(false);
+
+            $(".asset").each((index, node)=>{
+                const name = $(node).data("name");
+                node.src = assets[name]
+            });
+
             $(".lottie").each((index, node)=>{
                 const name = $(node).data("name");
                 App.get("motion").set(name, createAnimation(node));
