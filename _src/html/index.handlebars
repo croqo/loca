@@ -3,45 +3,21 @@
 <body>
 	<div id="fullpage">
 
+		{{> parts/modal}}
 
-		<section  data-anchor="intro">
+		<section data-anchor="home">
 			<div class="hero is-fullheight">
-				{{> parts/lottie name="logo"}}
 				<header class="hero-head">
 					{{> parts/nav}}
 				</header>
 				<main class="hero-body">
-					<div class="columns is-center is-vcentered">
-
-						<div class="column">
-							<div class="card-content">
-								<span class="level-item">
-									{{> parts/lottie name="button"}}
-								</span>
-							</div>
-						</div>
-
-					</div>
 				</main>
 				<footer class="hero-foot">
 					<figure class="solid acrylic is-link z-10"></figure>
 				</footer>
 			</div>
-
 		</section>
-		<section data-anchor="home">
 
-			<div class="hero">
-				<header class="hero-head">
-
-				</header>
-				<main class="hero-body"></main>
-				<footer class="hero-foot">
-					<h2 class="title has-text-white has-text-centered">Home {{this.title}}</h2>
-				</footer>
-			</div>
-
-		</section>
 	</div>
 </body>
 </html>

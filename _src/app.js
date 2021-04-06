@@ -27,7 +27,7 @@ $(()=>{
         sectionSelector: "section",
         recordHistory: false,
         menubar: "#navMenu",
-        fixedElements: ".navbar",
+        fixedElements: ".navbar, .modal",
         afterRender: function(){
             fullpage_api.setAllowScrolling(false);
 
@@ -114,13 +114,13 @@ function action(script) {
         case "bells":
             logo.addEventListener("segmentStart", ()=>{
                 setTimeout(()=>{
-                    $(".solid").animate({
+                    $(".modal").animate({
                         "opacity": 0
-                    },2000)
+                    },3000)
                 },1500)
             });
             logo.addEventListener("complete", ()=>{
-                fullpage_api.moveSectionDown();
+                $(".modal").removeClass("is-active");
             });
             logo.playSegments([0, 130], true);
             jingle.play();

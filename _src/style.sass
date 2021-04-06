@@ -50,6 +50,14 @@ body
     top: 0
     left: 0
     right: 0
+.navbar-item
+    & img
+        max-height: none
+
+.modal-background
+    &.primary
+        background: $primary
+
 .hero
     @extend #{".is-fullheight"}
 
@@ -74,8 +82,6 @@ body
         @include acrylic($link)
 
 figure
-    position: absolute
-    transition: all
     &[data-name="logo"]
         @include fill()
         @include depth(1)
