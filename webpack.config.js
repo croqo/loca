@@ -93,7 +93,7 @@ module.exports =
     new MiniCssExtractPlugin({ filename:'style.css' }),
     new HtmlWebpackPlugin({
       title: `— ${App.name} ( v${App.version} ) —`,
-      template: path.join(source, "html/index.handlebars"),
+      template: path.join(source, "html"),
       filename: 'index.html',
       inject: true
     }),
