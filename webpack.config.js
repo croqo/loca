@@ -17,7 +17,8 @@ const
 
 module.exports = 
 {
-  mode: 'development',
+  // mode: 'development',
+  mode: 'production',
   context: path.resolve(__dirname, ''),
   entry: [
     path.join(source, 'app.js'),
@@ -105,16 +106,16 @@ module.exports =
     builtAt: true,
     colors: true,
     timings: true
-  }
+  },
 
-  // optimization: 
-  // {
-  //   minimize: true,
-  //   minimizer: 
-  //   [
-  //       `...`,
-  //       new TerserPlugin(),
-  //       new CssMinimizerPlugin()
-  //   ]
-  // }
+  optimization: 
+  {
+    minimize: true,
+    minimizer: 
+    [
+        `...`,
+        new TerserPlugin(),
+        new CssMinimizerPlugin()
+    ]
+  }
 };
