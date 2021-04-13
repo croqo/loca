@@ -1,47 +1,39 @@
 {{> head}}
 
 <body>
-	<div id="fullpage">
-
-
-		<section  data-anchor="intro">
-			<div class="hero is-fullheight">
-				{{> parts/lottie name="logo"}}
-				<header class="hero-head">
-					{{> parts/nav}}
-				</header>
-				<main class="hero-body">
-					<div class="columns is-center is-vcentered">
-
-						<div class="column">
-							<div class="card-content">
-								<span class="level-item">
-									{{> parts/lottie name="button"}}
-								</span>
-							</div>
-						</div>
-
-					</div>
-				</main>
-				<footer class="hero-foot">
-					<figure class="solid acrylic is-link z-10"></figure>
-				</footer>
-			</div>
-
-		</section>
-		<section data-anchor="home">
-
+			<section data-anchor="home">
 			<div class="hero">
 				<header class="hero-head">
-
 				</header>
-				<main class="hero-body"></main>
+				<main class="hero-body">
+					<div class="slide"><div class="solid acrylic">1</div></div>
+					<div class="slide"><div class="solid acrylic is-link">2</div></div>
+				</main>
 				<footer class="hero-foot">
-					<h2 class="title has-text-white has-text-centered">Home {{this.title}}</h2>
+					<div class="hero-buttons is-fullwidth has-text-center">
+						<div class="container">
+							<div class="level">
+								<ul class="level-left card-content">
+									<a class="level-item"><li>Contact us</li></a>
+									<a class="level-item"><li>Terms & Conditions</li></a>
+									<a class="level-item"><li>Privacy Policy</li></a>
+								</ul>
+								<span class="level-item card-content"></span>
+								<ul class="level-right card-content">
+									<a class="level-item"><li class="icon"><i class="fab fa-facebook-f"></i></li></a>
+									<a class="level-item"><li class="icon"><i class="fab fa-twitter"></i></li></a>
+									<a class="level-item"><li class="icon"><i class="fab fa-instagram"></i></li></a>
+									<a class="level-item"><li class="icon"><i class="fab fa-youtube"></i></li></a>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</footer>
 			</div>
-
 		</section>
-	</div>
+
+		{{> parts/modal}}
+		{{> parts/nav}}
+
 </body>
 </html>

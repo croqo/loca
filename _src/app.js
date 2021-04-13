@@ -2,8 +2,6 @@
 
 var App = new Map().set("sound", new Map()).set("motion", new Map());
 
-const licence = JSON.parse(license);
-
 const assets = {
     logo: require("./img/logo.png")
 }
@@ -17,36 +15,21 @@ App.get("sound").set("jingle", createSound([
 import $ from "jquery";
 import lottie from "lottie-web";
 import {Howl} from "howler";
-import fullpage from "fullpage.js";
 
 $(()=>{
     // $("body").append(template.load("index", assets));
 
-    new fullpage("#fullpage", {
-        licenseKey: licence.fullpage,
-        sectionSelector: "section",
-        recordHistory: false,
-        menubar: "#navMenu",
-        fixedElements: ".navbar",
-        afterRender: function(){
-            fullpage_api.setAllowScrolling(false);
-
-            $(".asset").each((index, node)=>{
-                const name = $(node).data("name");
-                node.src = assets[name]
-            });
-
-            $(".lottie").each((index, node)=>{
-                const name = $(node).data("name");
-                App.get("motion").set(name, createAnimation(node));
-            });
-            action("init");
-        },
-        afterLoad: function(){
-            console.log(this);
-
-        }
+    $(".asset").each((index, node)=>{
+        const name = $(node).data("name");
+        node.src = assets[name]
     });
+
+    $(".lottie").each((index, node)=>{
+        const name = $(node).data("name");
+        App.get("motion").set(name, createAnimation(node));
+    });
+    action("init");
+
 });
 
 
@@ -112,23 +95,28 @@ function action(script) {
             }, 500 ); break
 
         case "bells":
-            logo.addEventListener("segmentStart", ()=>{
-                setTimeout(()=>{
-                    $(".solid").animate({
-                        "opacity": 0
-                    },2000)
-                },1500)
-            });
-            logo.addEventListener("complete", ()=>{
-                fullpage_api.moveSectionDown();
-            });
-            logo.playSegments([0, 130], true);
+            logo.playSegments([0, 120], true);
             jingle.play();
 
-            $(button.wrapper).animate({
-                "opacity":0
-            },100,()=>{
+            logo.addEventListener("complete", ()=>{
+                console.log("animation coplete");
+                setTimeout(()=>{
+                    $(".modal-background").animate({
+                        opacity: 0
+                    }, 1500, ()=>{
+                        $(logo.wrapper).animate({
+                            opacity: 0
+                        }, 1000)
+                    });
+                },2000);
+                setTimeout(()=>{
+                    $(".modal").removeClass("is-active");
+                },3500);
             });
+            $(".acrylic").animate({
+                opacity: .1
+            }, 2000);
+            $(button.wrapper).fadeOut(300);
             break
         default: return
     }
