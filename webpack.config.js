@@ -31,7 +31,7 @@ module.exports =
   },
   resolve: {
     extensions: [
-      ".js", ".json", ".sass", ".handlebars", "css", ".html"
+      ".js", ".json", ".sass", "css", ".html"
   ]},
   module: 
   {
