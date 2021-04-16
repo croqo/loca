@@ -1,5 +1,7 @@
 #   Loca Snacks
 ##  documentation
+
+This branch without handlebars.
   
 To get lottie animations playing, insert into template:  
 
@@ -8,5 +10,3 @@ To get lottie animations playing, insert into template:
         data-name="filename.json"  
     ></figure>
     >
-
-www dir is ready for upload
