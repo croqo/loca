@@ -1,7 +1,7 @@
 {
-  "name": "loca-web",
+  "name": "loca-snack-loading-animation",
   "version": "0.3.0",
-  "description": "Loca Chips Website",
+  "description": "LocaSnack loading animation",
   "main": "_src/app.js",
   "repository": "https://github.com/croqo/loca.git",
   "author": "Eugene Croquette <welcome@croc.work>",
