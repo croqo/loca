@@ -21,8 +21,7 @@ module.exports =
   mode: 'production',
   context: path.resolve(__dirname, ''),
   entry: [
-    path.join(source, 'app.js'),
-    path.join(source, 'style.sass')
+    path.join(source, 'app.js')
   ],
   output: {
     path: public,
@@ -47,10 +46,7 @@ module.exports =
         [
           MiniCssExtractPlugin.loader,
           { 
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'css-loader'
           },
           {
             loader: 'sass-loader',

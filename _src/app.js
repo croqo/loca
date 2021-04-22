@@ -15,6 +15,7 @@ App.get("sound").set("jingle", createSound([
 import $ from "jquery";
 import lottie from "lottie-web";
 import {Howl} from "howler";
+import style from "./style";
 
 $(()=>{
     // $("body").append(template.load("index", assets));
