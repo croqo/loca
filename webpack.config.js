@@ -20,10 +20,13 @@ module.exports =
   // mode: 'development',
   mode: 'production',
   context: path.resolve(__dirname, ''),
-  entry: [
-    path.join(source, 'app.js')
-  ],
+  entry: 
+    [
+      path.join(source, 'app.js')
+    ]
+  ,
   output: {
+    filename: `build_v${App.version}.js`,
     path: public,
     publicPath: '',
     clean: true
@@ -90,7 +93,7 @@ module.exports =
     new webpack.ProvidePlugin({
       license: path.join(source, '.licence.json')
     }),
-    new MiniCssExtractPlugin({ filename:'style.css' }),
+    new MiniCssExtractPlugin({ filename:`build_v${App.version}.css` }),
     new HtmlWebpackPlugin({
       title: `— ${App.name} ( v${App.version} ) —`,
       template: path.join(source, "html"),
