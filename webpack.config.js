@@ -20,18 +20,20 @@ module.exports =
   // mode: 'development',
   mode: 'production',
   context: path.resolve(__dirname, ''),
-  entry: [
-    path.join(source, 'app.js'),
-    path.join(source, 'style.sass')
-  ],
+  entry: 
+    [
+      path.join(source, 'app.js')
+    ]
+  ,
   output: {
+    filename: `build_v${App.version}.js`,
     path: public,
     publicPath: '',
     clean: true
   },
   resolve: {
     extensions: [
-      ".js", ".json", ".sass", ".handlebars", "css", ".html"
+      ".js", ".json", ".sass", "css", ".html"
   ]},
   module: 
   {
@@ -47,10 +49,7 @@ module.exports =
         [
           MiniCssExtractPlugin.loader,
           { 
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'css-loader'
           },
           {
             loader: 'sass-loader',
@@ -94,7 +93,7 @@ module.exports =
     new webpack.ProvidePlugin({
       license: path.join(source, '.licence.json')
     }),
-    new MiniCssExtractPlugin({ filename:'style.css' }),
+    new MiniCssExtractPlugin({ filename:`build_v${App.version}.css` }),
     new HtmlWebpackPlugin({
       title: `— ${App.name} ( v${App.version} ) —`,
       template: path.join(source, "html"),
