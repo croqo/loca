@@ -1,0 +1,181 @@
+#site-header .header-inner.section-inner {
+	width: 100%;
+	max-width: 100%;
+	padding: 4px 30px;
+	background: #003764;
+	box-shadow: 0px 9px 40px 4px #1c1c1c;
+}
+#site-header .header-navigation-wrapper {
+	margin-right: auto;
+	width: 100%;
+}
+#site-header .header-navigation-wrapper .primary-menu-wrapper {
+	display: flex;
+	align-items: center;
+}
+#site-header .header-navigation-wrapper .primary-menu-wrapper .right_menu {
+	margin-left: auto;
+	float: right;
+	margin-bottom: 0;
+	padding-right:30px;
+}
+#site-header .header-navigation-wrapper .primary-menu-wrapper .primary-menu.reset-list-style li a {
+	color: #ffff;
+	text-transform: uppercase;
+	font-size: 21px;
+	font-family: 'Proxima Nova Rg';
+	text-decoration:none;
+}
+#site-header .header-navigation-wrapper .primary-menu-wrapper .primary-menu.reset-list-style {
+	padding-left: 29px;
+}
+#site-header .header-navigation-wrapper .primary-menu-wrapper .right_menu li {
+	list-style: none;
+}
+#site-header .header-navigation-wrapper .primary-menu-wrapper .right_menu li a {
+	color: #ffff;
+	text-decoration: none;
+	font-size: 21px;
+	font-family: 'Proxima Nova Rg';
+	border: 1px solid #fff;
+	border-radius: 100px;
+	padding: 5px 20px;
+}
+.banner-section {
+	position: absolute;
+	top: 0;
+}
+.video_animation img {
+	max-width: 360px;
+	margin: 0 auto;
+}
+.text_section h1 {
+	color: #fff;
+	font-family: 'Proxima Nova Bl';
+	max-width: 390px;
+	text-align: center;
+	font-size: 66px;
+	line-height: 60px;
+	letter-spacing: 1px;
+	margin: 19px auto 10px;
+}
+.text_section img {
+	max-width: 275px;
+	margin: 0 auto;
+}
+.banner-section.slide1 {
+	width: 560px;
+	text-align: center;
+	top: 53px;
+}
+.banner-section.slide2 .video_animation img {
+	max-width: 290px;
+	margin: 0 auto;
+}
+.banner-section.slide2 {
+	display: flex;
+	align-items: center;
+	top: 35px;
+	left: 50px;
+}
+.banner-section.slide2 .text_section {
+	padding-left: 25px;
+}
+.banner-section.slide3 {
+	right: 60px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.banner-section.slide3 .video_animation img {
+	max-width: 420px;
+	margin: 50px auto 0;
+}
+.home_page .owl-carousel .owl-item img.ipad {
+	display: none;
+}
+.home_page .owl-carousel .owl-item img.mobile {
+	display: none;
+}
+header.entry-header.has-text-align-center.header-footer-group {
+    padding: 26px 0;
+}
+header.entry-header.has-text-align-center.header-footer-group h1.entry-title {
+    font-size: 43px;
+    margin-top: 30px;
+}
+body {
+    background: transparent;
+}
+.post-inner.thin {
+    background: transparent;
+    padding: 30px 0 60px;
+}
+.post-inner.thin form {
+    box-shadow: 0 0 10px 1px #ddd;
+    padding: 20px;
+    border-top: 4px solid #003764;
+    border-radius: 5px;
+}
+.post-inner.thin form label {
+    font-family: 'Proxima Nova Rg';
+}
+.post-inner.thin form input[type="submit"] {
+    background: #003764;
+    border-radius: 100px;
+    padding: 10px 40px;
+    text-decoration: none;
+}
+.footer-nav-widgets-wrapper.header-footer-group {
+    margin: 0;
+}
+.footer-nav-widgets-wrapper.header-footer-group {
+    margin: 0;
+    background: #003764;
+}
+.footer-widgets {
+    width: 100%;
+    margin: 0;
+}
+.footer-widgets ul li a {
+    color: #fff;
+    font-family: 'Proxima Nova Rg';
+    font-weight: 500;
+    text-decoration: none !important;
+}
+.footer-widgets ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-widgets ul li {
+    display: inline;
+    margin: 0 14px;
+}
+.footer-inner.section-inner .widget.widget_media_image img {
+    margin: 0 auto;
+    display: table;
+}
+.footer-widgets ul li:nth-last-child(4) {
+    padding-left: 80px;
+}
+.footer-inner.section-inner .widget.widget_text {
+    margin-top: 16px;
+}
+.footer-inner.section-inner aside.footer-widgets-outer-wrapper {
+    padding: 40px 0;
+    border: 0;
+}
+.footer-inner.section-inner p {
+    color: #fff;
+    font-family: 'Proxima Nova Rg';
+    text-align: center;
+    font-size: 15px;
+}
+.footer-inner.section-inner .widget.widget_media_image {
+    margin-top: 14px;
+}
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output {
+    border-color: #ff2929;
+    color: #ff2929;
+    font-size: 15px;
+}
