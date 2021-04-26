@@ -18,9 +18,10 @@
     "jquery": "^3.6.0",
     "laravel-mix": "^6.0.18",
     "lottie-web": "^5.7.8",
+    "owl.carousel": "latest",
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1",
-    "webpack": "^5.35.0",
+    "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0"
   }
 }
