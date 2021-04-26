@@ -1,0 +1,4 @@
+node_modules
+package-lock.json
+assets/sound/jingle.mp3
+assets/sound/jingle.webm

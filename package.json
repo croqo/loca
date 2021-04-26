@@ -1,0 +1,26 @@
+{
+  "name": "locasnack",
+  "version": "0.3.1",
+  "description": "Asset package for WP theme",
+  "repository": "https://github.com/croqo/loca.git",
+  "author": "Eugene Croquette <welcome@croc.work>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "mix": "mix",
+    "build": "webpack --stats-children --progress",
+    "watch": "webpack --watch --progress --config"
+  },
+  "devDependencies": {
+    "bulma": "0.9.2",
+    "font-awesome": "^4.7.0",
+    "howler": "2.2.1",
+    "jquery": "^3.6.0",
+    "laravel-mix": "^6.0.18",
+    "lottie-web": "^5.7.8",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0"
+  }
+}
