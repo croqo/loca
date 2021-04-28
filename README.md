@@ -16,10 +16,16 @@
     <div class="modal-content">
         <figure 
             class="lottie" 
-            data-name="button"
+            data-name="button" 
+            onclick="window.crocwork.action('bells')" 
             >
         </figure>
     </div>
 </div>
+
+<audio class="sound" data-name="jingle">
+    <source src="<path/to/this/file/on/your/server>/jingle.webm">
+    <source src="<path/to/this/file/on/your/server>/jingle.mp3">
+</audio>
 ```
 * #### Profit! ([demo page link](https://loca.croc.work))
