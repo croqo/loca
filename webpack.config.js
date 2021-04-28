@@ -31,6 +31,12 @@ module.exports =
     publicPath: '',
     clean: true
   },
+  externals: {
+    jquery: [
+      "window.jQuery", "jQuery", 
+      "window.$", "$"
+    ]
+  },
   resolve: {
     extensions: [
       ".js", ".json", ".sass", "css", ".html"
@@ -39,10 +45,10 @@ module.exports =
   {
     rules:
     [
-      {
-        test: /\.handlebars$/,
-        loader: 'handlebars-loader'
-      },
+      // {
+      //   test: /\.handlebars$/,
+      //   loader: 'handlebars-loader'
+      // },
       {
         test: /.(sa|sc|c)ss$/,
         use: 
@@ -73,13 +79,13 @@ module.exports =
             filename: 'font/[name][ext]'
         }
       },
-      {
-        test: /\.(webm|mp3)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: 'sound/[name][ext]'
-        }
-      },
+      // {
+      //   test: /\.(webm|mp3)$/i,
+      //   type: "asset/resource",
+      //   generator: {
+      //     filename: 'sound/[name][ext]'
+      //   }
+      // },
       {
         test: /\.(json)$/,
         type: "asset/source"
@@ -91,7 +97,7 @@ module.exports =
       percentBy: 'entries'
     }),
     new webpack.ProvidePlugin({
-      license: path.join(source, '.licence.json')
+      // license: path.join(source, '.licence.json')
     }),
     new MiniCssExtractPlugin({ filename:`build_v${App.version}.css` }),
     new HtmlWebpackPlugin({
